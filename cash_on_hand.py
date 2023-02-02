@@ -40,5 +40,36 @@ def coh_difference():
                     deficit_day = float(coh_day[day][0])
 
                     coh_deficit.append([deficit_day,coh_difference])
+ # setting another condition that if for all days the cash on hand is higher on each day and the difference between
+                # 2 amounts on any day is more than 0, a statement will be returned displaying the message
+                elif (float(coh_day[day][1]) > float(coh_day[day-1][1])) and (coh_difference > 0):
+
+                    return "[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY"
+
+        def print_cash_deficit_data():
+            '''
+            This function has no parameters and will obtain and print all deficit data
+            '''
+            # setting a variable to store deficit statement
+            final_message = ""
+
+            # using a for loop to run through all the deficit data and creating statement to be returned
+            for deficit_data in coh_deficit:
+
+                final_message += f"[CASH DEFICIT] DAY: {deficit_data[0]}, AMOUNT USD {deficit_data[1]}\n"  
+            # returning statement back to the function
+            return final_message
+        
+        # returning this function back to the main program
+        return print_cash_deficit_data()
+
+# printing the function
+print(coh_difference())
+
+    
+#opening a txt file named "summary_report" and appending the function to the file
+with open("summary_report.txt" , "a") as file:
+    file.write(coh_difference())
+
 
                
