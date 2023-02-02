@@ -8,8 +8,8 @@ def main_program():
    This function has no parameters and will run all the other functions imported from pyhton files
    '''
    overheads_highest()
-   cash_difference
-   pl_difference
+   cash_difference()
+   pl_difference()
    
 # running main program
 (main_program())
